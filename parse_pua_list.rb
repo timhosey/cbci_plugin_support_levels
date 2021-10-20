@@ -24,10 +24,9 @@ def days_since(usages_list)
       date_stamp = k['instant']['epochSecond'] 
     end
   end
-  now = Time.now
+  now = Time.now.to_i
   date_stamp = now if date_stamp == 0 || date_stamp == nil
   since = (now - date_stamp.to_i) / (24 * 60 * 60)
-  puts since
   output = since > 0 ? "- #{since} days ago" : ""
   return output
 end
